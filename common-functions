@@ -465,6 +465,8 @@ service_link() {
   fi
   [[ -n "$SERVICE_QUERYSTRING" ]] && SERVICE_URL="${SERVICE_URL}?${SERVICE_QUERYSTRING}"
   config_set "$APP" "${ALIAS}_URL=$SERVICE_URL"
+  # Kibina 7 uses HOSTS instead
+  config_set "$APP" "${ALIAS}_HOSTS=$SERVICE_URL"
 }
 
 service_linked_apps() {
